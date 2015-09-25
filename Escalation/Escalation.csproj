@@ -201,15 +201,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BalooganTransmit.cs" />
+    <Compile Include="Context\GameContext.cs" />
+    <Compile Include="Context\GameContextException.cs" />
+    <Compile Include="Context\GameContextMigration.cs" />
+    <Compile Include="Context\GameContextModelBuilder.cs" />
+    <Compile Include="Context\GameContextMutexException.cs" />
+    <Compile Include="Context\GameContextTables.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Identity\AccountViewModels.cs" />
+    <Compile Include="Identity\IdentityModels.cs" />
+    <Compile Include="Identity\ManageViewModels.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -220,52 +228,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="LinqToDB.Templates\CopyMe.MySql.tt.txt" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="LinqToDB.Templates\LinqToDB.MySql.Tools.ttinclude" />
-    <Content Include="LinqToDB.Templates\Validation.ttinclude" />
-    <Content Include="LinqToDB.Templates\T4Model.ttinclude" />
-    <Content Include="LinqToDB.Templates\ReadMe.LinqToDB.md" />
-    <Content Include="LinqToDB.Templates\PluralizationService.ttinclude" />
-    <Content Include="LinqToDB.Templates\NotifyPropertyChanged.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.Tools.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.Sybase.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.SqlServer.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.SqlServer.SqlTypes.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.SQLite.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.SqlCe.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.PostgreSQL.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.Oracle.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.MySql.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.Informix.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.Firebird.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.DB2.ttinclude" />
-    <Content Include="LinqToDB.Templates\LinqToDB.Access.ttinclude" />
-    <Content Include="LinqToDB.Templates\EditableObject.ttinclude" />
-    <Content Include="LinqToDB.Templates\DataModel.ttinclude" />
-    <Content Include="LinqToDB.Templates\DataAnnotations.ttinclude" />
-    <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceer40EN.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlcecompact40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\sqlceca40.dll" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlcese40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceqp40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceme40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceer40EN.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlcecompact40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\sqlceca40.dll" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -314,11 +282,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
-    <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
