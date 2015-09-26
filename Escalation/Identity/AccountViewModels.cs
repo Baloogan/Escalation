@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Escalation.Models
+namespace Escalation.Identity
 {
     public class ExternalLoginConfirmationViewModel
     {

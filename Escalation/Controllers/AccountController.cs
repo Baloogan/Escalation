@@ -8,7 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Escalation.Models;
+using Escalation.Identity;
+using Escalation.Model;
 
 namespace Escalation.Controllers
 {
@@ -155,6 +156,12 @@ namespace Escalation.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    using (var db = Context.GameContext.Create())
+                    {
+                        db.Users.Add(new User() { Name = user.UserName });
+                        AutoBaloogan.baloogan_chatDB.transmit("#se_control", "New user registered: " + user.UserName + " email: " + user.Email);
+                        db.SaveChanges();
+                    }
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

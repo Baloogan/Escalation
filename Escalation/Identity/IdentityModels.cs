@@ -5,8 +5,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.Migrations;
 using System;
+using System.Data.Entity.Infrastructure;
 
-namespace Escalation.Models
+namespace Escalation.Identity
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -20,6 +21,13 @@ namespace Escalation.Models
         }
     }
 
+    public class MigrationsIdentityContextFactory : IDbContextFactory<IdentityContext>
+    {
+        public IdentityContext Create()
+        {
+            return IdentityContext.Create();
+        }
+    }
     public class IdentityContext : IdentityDbContext<ApplicationUser>
     {
         private IdentityContext(string connString)
