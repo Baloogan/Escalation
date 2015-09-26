@@ -218,6 +218,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BalooganTransmit.cs" />
+    <Compile Include="Client\GameHub.cs" />
     <Compile Include="Context\GameContext.cs" />
     <Compile Include="Context\GameContextException.cs" />
     <Compile Include="Context\GameContextMigration.cs" />
@@ -225,6 +226,7 @@
     <Compile Include="Context\GameContextMutexException.cs" />
     <Compile Include="Context\GameContextTables.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\GameManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -232,7 +234,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Graph\Edge.cs" />
-    <Compile Include="Graph\Entry.cs" />
     <Compile Include="Graph\GraphData.cs" />
     <Compile Include="Graph\GraphManager.cs" />
     <Compile Include="Graph\Vertex.cs" />
@@ -247,6 +248,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\App.js" />
+    <Content Include="Client\Game.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -306,10 +309,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\GameManagement\StartNew.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Client\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

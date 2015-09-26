@@ -17,7 +17,29 @@ namespace Escalation.Controllers
         public ActionResult StartNewSubmit(Game game)
         {
 
-            return View();
+
+            using (var db = Context.GameContext.Create())
+            {
+                if (User != null)
+                {
+                    var user = db.Users.First(F => F.Name == User.Identity.Name);
+                    game.User = user;
+                }
+                State start = new State();
+                start.VertexName = "WelcomeMrPresident";
+                start.LeaderSleepNeed = 0;
+                start.Game = game;
+                start.DateTime = new DateTime(1980, 1, 1);
+                start.EdgeName = "";
+                start.CurrentState = true;
+                game.States.Add(start);
+                db.Games.Add(game);
+
+
+                db.SaveChanges();
+            }
+            Session["Game"] = game;
+            return RedirectToAction("Index", "Game");
         }
     }
 }

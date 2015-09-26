@@ -1,4 +1,5 @@
-﻿using Escalation.Model;
+﻿using Escalation.Identity;
+using Escalation.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Reflection;
 namespace Escalation.Context
-{//raistlin31
+{
 
 
 
@@ -42,8 +43,13 @@ namespace Escalation.Context
             User gameUser = new User() { Name = "Escalation" };
             context.Users.AddOrUpdate(gameUser);
 
-            //Game.Seed.MainSeed.SeedDatabase(context);
-            
+            using (var db = IdentityContext.Create())
+            {
+                foreach (var a in db.Users)
+                {
+                    context.Users.AddOrUpdate(F => F.Name, new User() { Name = a.UserName });
+                }
+            }
             context.SaveChanges();
 
 
@@ -75,7 +81,7 @@ namespace Escalation.Context
                         context.Database.ExecuteSqlCommand(TransactionalBehavior.DoNotEnsureTransaction, "USE master DROP DATABASE [" + context.Database.Connection.Database + "]");
                     }
                 }
-                
+
                 var migrator = new MigrateDatabaseToLatestVersion<TContext, TMigrationsConfiguration>();
                 migrator.InitializeDatabase(context);
             }

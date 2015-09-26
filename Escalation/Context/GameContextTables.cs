@@ -9,5 +9,6 @@ namespace Escalation.Context
         public DbSet<User> Users { get; set; }
 
         public DbSet<Game> Games { get; set; }
+        public DbSet<State> States { get; set; }
     }
 }

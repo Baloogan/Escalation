@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "";
+}
+
+<div class="row" ng-app="app" ng-controller="GameController" id="RowDiv">
+    Game!
+</div>
+@section scripts
+{
+    <script>
+        var GameId = @ViewBag.GameId;
+    </script>
+    @Scripts.Render("~/Client/App.js")
+    @Scripts.Render("~/Client/GameController.js")
+
+}
