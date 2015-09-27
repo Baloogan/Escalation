@@ -29,6 +29,8 @@ namespace Escalation.Content.Start
             e = new Edge(d);
             e.State.VertexName = "FlashpointBerlin_Subcrisis";
             e.State.Leadership -= 10;
+            e.Disabled = true;
+            e.DisabledReason = "lol";
             e.HTML = "Attempt to deflect political control.";
             v.Edges.Add(e);
 

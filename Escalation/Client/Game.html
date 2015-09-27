@@ -13,11 +13,13 @@
 
     </div>
 </div>
+<br /><br />
 <div class="col-md-12">
 
     <div ng-repeat="edge in vertex.Edges">
-        <a ng-click="edge_click(edge.Name)">{{edge.HTML}}</a>
-        <span ng-repeat="(key, value) in edge.diff">{{key}} changes from {{value[0]}} to {{value[1]}}.</span>
+
+        <b><a ng-click="edge_click(edge.Name)" ng-hide="{{edge.Disabled}}">{{edge.HTML}}</a></b><a ng-show="{{edge.Disabled}}" style="color:red; cursor:not-allowed">{{edge.HTML}} ({{edge.DisabledReason}})</a><br />
+        <span ng-repeat="(key, value) in edge.diff">{{key}} changes from '{{value[0]}}' to '{{value[1]}}'. <br /></span>
         <br /><br />
     </div>
 

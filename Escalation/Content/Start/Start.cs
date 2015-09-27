@@ -49,6 +49,7 @@ namespace Escalation.Content.Start
             e.State.Title = "Flashpoint Berlin, 1965";
             e.State.Nation = "the United States of America";
             e.State.EnemyNation = "the Soviet Union";
+            e.State.DateTime = new DateTime(1965, 5, 1);
             e.State.EnemyLeader = "Leonid Brezhnev";
             e.HTML = "Flashpoint Berlin, 1965";
 

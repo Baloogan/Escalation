@@ -20,6 +20,8 @@ namespace Escalation.Graph
         {
             public string HTML;
             public State State;
+            public bool Disabled;
+            public string DisabledReason;
             public string Name;//provided in GraphManager
             public Edge(GraphData d)
             {

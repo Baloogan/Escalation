@@ -21,15 +21,15 @@ namespace Escalation.Controllers
 
             using (var db = Context.GameContext.Create())
             {
-                /*if (User != null)
+                if (User != null)
                 {
                     var user = db.Users.First(F => F.Name == User.Identity.Name);
                     game.User = user;
-                }*/
+                }
                 State start = new State();
                 start.VertexName = "Start_Step1";
                 start.Game = game;
-                start.DateTime = DateTime.Now;
+                start.DateTime = new DateTime(2016, 1, 1);
                 start.EdgeName = "";
                 start.Title = "Escalation";
                 start.CurrentState = true;
