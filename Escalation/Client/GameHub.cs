@@ -25,7 +25,8 @@ namespace Escalation.Client
         public void client_report(string s)
         {
             //if (Context.User.Identity.Name != "Baloogan")
-            AutoBaloogan.baloogan_chatDB.transmit("es_control", Context.ConnectionId.Substring(0, 4) + " (" + Context.User.Identity.Name + ")" + ": " + s);
+            //AutoBaloogan.baloogan_chatDB.transmit("es_control", Context.ConnectionId.Substring(0, 4) + " (" + Context.User.Identity.Name + ")" + ": " + s);
+            Mailslot.Transmit(Context.ConnectionId.Substring(0, 4) + " (" + Context.User.Identity.Name + ")" + ": " + s);
         }
         public string download_game()
         {
@@ -92,7 +93,7 @@ namespace Escalation.Client
             {
 
                 State state = db.States
-                    .Include(F => F.Game)
+                    //.Include(F => F.Game)
                     .First(S => S.StateId == StateId);
 
                 Vertex v = GraphManager.GetVertex(state);

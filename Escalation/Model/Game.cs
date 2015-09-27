@@ -15,10 +15,10 @@ namespace Escalation.Model
         [InverseProperty("Game")]
         public virtual List<State> States { get; set; } = new List<State>();
         public string LeaderName { get; set; }
-        public string NationName { get; set; }
-        public string EnemyName { get; set; }
+        //public string NationName { get; set; }
+        //public string EnemyName { get; set; }
 
-        public string EnemyLeaderName { get; set; }
+        //public string EnemyLeaderName { get; set; }
 
     }
 }

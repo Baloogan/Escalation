@@ -1,25 +1,17 @@
 ﻿
-app.controller('GameController', ['$scope', '$rootScope', '$window', function ($scope, $rootScope, $window) {
+app.controller('AdminController', ['$scope', '$rootScope', function ($scope, $rootScope) {
 
-    var diffpatcher = jsondiffpatch.create();
 
     $.connection.hub.logging = true;
-    $.connection.hub.qs = { GameId: GameId };
-    $scope.game = null;
+    $.connection.hub.qs = {};
 
-    $scope.state = null;
-    $scope.vertex = null;
 
-    $scope.game_str = null;
-    $scope.state_str = null;
-    $scope.vertex_str = null;
 
     $scope.GameHub = $.connection.GameHub;
     $scope.GameHub.client.returnTest = function (s) { console.log(s); };
+    $scope.AdminHub = $.connection.AdminHub;
+    $scope.AdminHub.client.returnTest = function (s) { console.log(s); };
 
-    $rootScope.client_report = function (s) {
-        $scope.GameHub.server.client_report(s);
-    }
     $scope.edge_click = function (edgeName) {
         $rootScope.client_report("Edge: " + edgeName);
         $scope.GameHub.server.choose_edge($scope.state.StateId, edgeName)
@@ -27,7 +19,7 @@ app.controller('GameController', ['$scope', '$rootScope', '$window', function ($
                 $scope.display_state();
             });
     }
-    $scope.debug_state = function () {
+    $scope.debug_state=function(){
         $scope.game_str = JSON.stringify(JSON.decycle($scope.game), null, 4);
         $scope.state_str = JSON.stringify(JSON.decycle($scope.state), null, 4);
         $scope.vertex_str = JSON.stringify(JSON.decycle($scope.vertex), null, 4);
@@ -49,30 +41,18 @@ app.controller('GameController', ['$scope', '$rootScope', '$window', function ($
             .done(function (s) {
                 retrocycle(s);
                 $scope.state = s;
-                $window.document.title = $scope.state.Title
                 $scope.GameHub.server.download_vertex($scope.state.StateId)
                     .then(JSON.parse)
                     .done(function (v) {
                         retrocycle(v);
                         $scope.vertex = v;
-                        _.each($scope.vertex.Edges, function (e) {
-                            e.diff = diffpatcher.diff(s, e.State);
-                            var obj = e.diff;
-                            for (var prop in obj) {
-                                if (obj.hasOwnProperty(prop)) {
-                                    if (prop == "Game" || prop == "VertexName" || prop == "$id") {
-                                        delete obj[prop];
-                                    }
-                                }
-                            }
-                        });
                         $scope.$apply();
                         $scope.debug_state();
                         $rootScope.client_report("Vertex: " + v.Name);
-
                     });
             });
 
+        $rootScope.client_report("display_state");
     }
 
     $.connection.hub

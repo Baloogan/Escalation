@@ -159,7 +159,8 @@ namespace Escalation.Controllers
                     using (var db = Context.GameContext.Create())
                     {
                         db.Users.Add(new User() { Name = user.UserName });
-                        AutoBaloogan.baloogan_chatDB.transmit("se_control", "New user registered: " + user.UserName + " email: " + user.Email);
+                        //AutoBaloogan.baloogan_chatDB.transmit("se_control", "New user registered: " + user.UserName + " email: " + user.Email);
+                        Mailslot.Transmit("New user registered: " + user.UserName + " email: " + user.Email);
                         db.SaveChanges();
                     }
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

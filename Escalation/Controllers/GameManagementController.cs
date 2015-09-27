@@ -28,10 +28,10 @@ namespace Escalation.Controllers
                 }*/
                 State start = new State();
                 start.VertexName = "Start_Step1";
-                start.LeaderSleepNeed = 0;
                 start.Game = game;
                 start.DateTime = DateTime.Now;
                 start.EdgeName = "";
+                start.Title = "Escalation";
                 start.CurrentState = true;
                 game.States.Add(start);
                 db.Games.Add(game);

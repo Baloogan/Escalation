@@ -46,7 +46,12 @@ namespace Escalation.Content.Start
 
             Edge e = new Edge(d);
             e.State.VertexName = "FlashpointBerlin_Intro";
+            e.State.Title = "Flashpoint Berlin, 1965";
+            e.State.Nation = "the United States of America";
+            e.State.EnemyNation = "the Soviet Union";
+            e.State.EnemyLeader = "Leonid Brezhnev";
             e.HTML = "Flashpoint Berlin, 1965";
+
             v.Edges.Add(e);
 
             return v;

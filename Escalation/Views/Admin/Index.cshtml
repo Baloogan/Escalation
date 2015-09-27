@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<div class="row" ng-app="app" ng-controller="AdminController" id="RowDiv">
+    <ng-include src="'/Client/Admin.html'" />
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Client/App.js")
+    @Scripts.Render("~/Client/AdminController.js")
+
+}
