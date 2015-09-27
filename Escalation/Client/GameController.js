@@ -25,7 +25,7 @@ app.controller('GameController', ['$scope', '$rootScope', '$window', function ($
         $scope.GameHub.server.choose_edge($scope.state.StateId, edgeName)
             .done(function () {
                 $scope.display_state();
-                
+
             });
     }
     $scope.debug_state = function () {
@@ -63,6 +63,26 @@ app.controller('GameController', ['$scope', '$rootScope', '$window', function ($
                                 if (obj.hasOwnProperty(prop)) {
                                     if (prop == "Game" || prop == "VertexName" || prop == "$id") {
                                         delete obj[prop];
+                                    } else {
+                                        var obj2 = obj[prop];
+                                        if (Array.isArray(obj2))
+                                            continue;
+                                        var obj2_count = 0;
+                                        for (var prop2 in obj2) {
+                                            if (prop2 == "Game" || prop2 == "VertexName" || prop2 == "$id") {
+                                                delete obj2[prop2];
+                                            } else {
+                                                obj2_count++;
+                                            }
+                                        }
+                                        if (obj2_count == 0) {
+                                            delete obj[prop];
+                                        } else {
+                                            for (var prop2 in obj2) {
+                                                obj[e.State[prop].Name + " - " + prop2] = obj2[prop2];
+                                                delete obj[prop];
+                                            }
+                                        }
                                     }
                                 }
                             }

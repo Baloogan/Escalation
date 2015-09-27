@@ -6,6 +6,12 @@ using System.Web;
 
 namespace Escalation.Model
 {
+    public class Rank
+    {
+        public string Name { get; set; }
+        public int Played { get; set; }
+        public int InHand { get; set; }
+    }
     public class State
     {
         public int StateId { get; set; }
@@ -28,7 +34,7 @@ namespace Escalation.Model
         public string EnemyNation { get; set; }
         public string EnemyLeader { get; set; }
 
-
+        /*
         public double Leadership { get; set; }
         public double Prestige { get; set; }
 
@@ -38,22 +44,18 @@ namespace Escalation.Model
 
         public double Pressure { get; set; }
 
-        public int PoliticalCapital { get; set; }
-        public int EconomicCapital { get; set; }
-        public int DiplomaticCapital { get; set; }
-
-
         public double PublicAwareness { get; set; }
-
-
-
-
-
 
         public double Casualties { get; set; }
         public double FriendlyCasualties { get; set; }
         public double EnemyCasualties { get; set; }
+        */
 
+
+        public Rank Rank1 { get; set; } = new Rank() { Name = "Ostensible Crisis" };
+        public Rank Rank2_poli { get; set; } = new Rank() { Name = "Political Gestures" };
+        public Rank Rank2_econ { get; set; } = new Rank() { Name = "Economic Gestures" };
+        public Rank Rank2_dipl { get; set; } = new Rank() { Name = "Diplomatic Gestures" };
 
 
 

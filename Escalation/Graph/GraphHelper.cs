@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Escalation.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -23,7 +24,13 @@ namespace Escalation.Graph
             {
 
                 // Copy value
-                property.SetValue(newObj, property.GetValue(source, null), null);
+                var obj = property.GetValue(source, null);
+                if (obj is Rank)
+                    obj = ShallowCopyEntity<Rank>(obj as Rank);
+                property.SetValue(newObj, obj, null);
+
+
+
 
             }
 

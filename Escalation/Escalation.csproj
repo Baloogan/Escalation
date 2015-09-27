@@ -258,11 +258,14 @@
     <Content Include="Client\Admin.html" />
     <Content Include="Client\AdminController.js" />
     <Content Include="Client\GameController.js" />
+    <Content Include="Client\Ladder.html" />
+    <Content Include="Content\SubcrisisManeuvering\SubcrisisManeuvering.html" />
     <Content Include="Content\SubcrisisManeuvering\Rung3.html" />
     <Content Include="Content\SubcrisisManeuvering\Rung2.html" />
     <Content Include="Content\SubcrisisManeuvering\Rung1.html" />
     <Content Include="Content\Start\Scenarios.html" />
     <Content Include="Content\FlashpointBerlin\Intro.html" />
+    <Content Include="Content\TraditionalCrises\Rung5.html" />
     <Content Include="Content\TraditionalCrises\Rung4.html" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
