@@ -24,9 +24,11 @@ namespace Escalation.Client
         }
         public void client_report(string s)
         {
-            //if (Context.User.Identity.Name != "Baloogan")
+
             //AutoBaloogan.baloogan_chatDB.transmit("es_control", Context.ConnectionId.Substring(0, 4) + " (" + Context.User.Identity.Name + ")" + ": " + s);
-            Mailslot.Transmit(Context.ConnectionId.Substring(0, 4) + " (" + Context.User.Identity.Name + ")" + ": " + s);
+            if (Context.User != null && Context.User.Identity != null && Context.User.Identity.Name != null)
+                if (Context.User.Identity.Name != "Baloogan")
+                    Mailslot.Transmit(Context.ConnectionId.Substring(0, 4) + " (" + Context.User.Identity.Name + ")" + ": " + s);
         }
         public string download_game()
         {

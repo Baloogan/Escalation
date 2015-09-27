@@ -256,13 +256,14 @@
     <Content Include="Client\Admin.html" />
     <Content Include="Client\AdminController.js" />
     <Content Include="Client\GameController.js" />
+    <Content Include="Content\Text\Rung1.html" />
     <Content Include="Content\FlashpointBerlin\Subcrisis.html" />
     <Content Include="Content\Start\Scenarios.html" />
     <Content Include="Content\FlashpointBerlin\Intro.html" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
-    <Content Include="Content\Start\Step1.html" />
-    <Content Include="Content\Start\Step2.html" />
+    <Content Include="Content\Start\Initial.html" />
+    <Content Include="Content\Start\Settings.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

@@ -11,29 +11,63 @@ namespace Escalation.Content.Start
     {
         private const string Root = "/Content/Start/";
 
-        [Vertex("Step1")]
-        public static Vertex Step1(GraphData d)
+        [Vertex("Initial")]
+        public static Vertex Initial(GraphData d)
         {
             Vertex v = new Vertex();
-            v.Include = Root + "Step1.html";
+            v.Include = Root + "Initial.html";
 
             Edge e = new Edge(d);
             e = new Edge(d);
-            e.State.VertexName = "Start_Step2";
+            e.State.VertexName = "Start_Settings";
             e.HTML = "Okay!";
             v.Edges.Add(e);
 
             return v;
         }
-        [Vertex("Step2")]
-        public static Vertex Step2(GraphData d)
+        [Vertex("Settings")]
+        public static Vertex Settings(GraphData d)
         {
             Vertex v = new Vertex();
-            v.Include = Root + "Step2.html";
+            v.Include = Root + "Settings.html";
 
-            Edge e = new Edge(d);
+            Edge e;
+
+
+            e = new Edge(d);
+            e.State.VertexName = "Start_Settings";
+            if (!e.State.ShowDebug)
+            {
+                e.State.ShowDebug = true;
+                e.HTML = "Turn Debug Mode on.";
+            }
+            else
+            {
+                e.State.ShowDebug = false;
+                e.HTML = "Turn Debug Mode off.";
+            }
+            v.Edges.Add(e);
+
+
+            e = new Edge(d);
+            e.State.VertexName = "Start_Settings";
+            if (!e.State.ShowDelta)
+            {
+                e.State.ShowDelta = true;
+                e.HTML = "Show Deltas Mode on.";
+            }
+            else
+            {
+                e.State.ShowDelta = false;
+                e.HTML = "Show Deltas Mode off.";
+            }
+            v.Edges.Add(e);
+
+
+
+            e = new Edge(d);
             e.State.VertexName = "Start_Scenarios";
-            e.HTML = "Okay.";
+            e.HTML = "Okay. I'm done changing settings.";
             v.Edges.Add(e);
 
             return v;
@@ -51,6 +85,8 @@ namespace Escalation.Content.Start
             e.State.EnemyNation = "the Soviet Union";
             e.State.DateTime = new DateTime(1965, 5, 1);
             e.State.EnemyLeader = "Leonid Brezhnev";
+            
+            e.State.HighestRung = 0;
             e.HTML = "Flashpoint Berlin, 1965";
 
             v.Edges.Add(e);
