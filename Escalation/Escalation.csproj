@@ -220,6 +220,8 @@
     <Compile Include="Client\AdminHub.cs" />
     <Compile Include="Client\GameHub.cs" />
     <Compile Include="Content\FlashpointBerlin\FlashpointBerlin.cs" />
+    <Compile Include="Content\SubcrisisManeuvering\SubcrisisManeuvering.cs" />
+    <Compile Include="Content\TraditionalCrises\TraditionalCrises.cs" />
     <Compile Include="Context\GameContext.cs" />
     <Compile Include="Context\GameContextException.cs" />
     <Compile Include="Context\GameContextMigration.cs" />
@@ -256,10 +258,12 @@
     <Content Include="Client\Admin.html" />
     <Content Include="Client\AdminController.js" />
     <Content Include="Client\GameController.js" />
-    <Content Include="Content\Text\Rung1.html" />
-    <Content Include="Content\FlashpointBerlin\Subcrisis.html" />
+    <Content Include="Content\SubcrisisManeuvering\Rung3.html" />
+    <Content Include="Content\SubcrisisManeuvering\Rung2.html" />
+    <Content Include="Content\SubcrisisManeuvering\Rung1.html" />
     <Content Include="Content\Start\Scenarios.html" />
     <Content Include="Content\FlashpointBerlin\Intro.html" />
+    <Content Include="Content\TraditionalCrises\Rung4.html" />
     <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\bootstrap.min.css" />
     <Content Include="Content\Start\Initial.html" />
@@ -331,7 +335,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Graph\Basic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

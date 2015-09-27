@@ -25,6 +25,7 @@ app.controller('GameController', ['$scope', '$rootScope', '$window', function ($
         $scope.GameHub.server.choose_edge($scope.state.StateId, edgeName)
             .done(function () {
                 $scope.display_state();
+                
             });
     }
     $scope.debug_state = function () {
@@ -69,6 +70,7 @@ app.controller('GameController', ['$scope', '$rootScope', '$window', function ($
                         $scope.$apply();
                         $scope.debug_state();
                         $rootScope.client_report("Vertex: " + v.Name);
+                        $window.scrollTo(0, 0);
 
                     });
             });

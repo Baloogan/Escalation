@@ -86,7 +86,6 @@ namespace Escalation.Content.Start
             e.State.DateTime = new DateTime(1965, 5, 1);
             e.State.EnemyLeader = "Leonid Brezhnev";
             
-            e.State.HighestRung = 0;
             e.HTML = "Flashpoint Berlin, 1965";
 
             v.Edges.Add(e);
