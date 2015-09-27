@@ -10,6 +10,7 @@ namespace Escalation.Controllers
     public class GameManagementController : Controller
     {
         // GET: GameManagement
+
         public ActionResult StartNew()
         {
             return View();
@@ -20,16 +21,16 @@ namespace Escalation.Controllers
 
             using (var db = Context.GameContext.Create())
             {
-                if (User != null)
+                /*if (User != null)
                 {
                     var user = db.Users.First(F => F.Name == User.Identity.Name);
                     game.User = user;
-                }
+                }*/
                 State start = new State();
-                start.VertexName = "WelcomeMrPresident";
+                start.VertexName = "Start_Step1";
                 start.LeaderSleepNeed = 0;
                 start.Game = game;
-                start.DateTime = new DateTime(1980, 1, 1);
+                start.DateTime = DateTime.Now;
                 start.EdgeName = "";
                 start.CurrentState = true;
                 game.States.Add(start);

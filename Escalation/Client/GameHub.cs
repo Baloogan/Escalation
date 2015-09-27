@@ -33,7 +33,10 @@ namespace Escalation.Client
             {
                 int GameId = int.Parse(this.Context.QueryString["GameId"]);
 
-                Game game = db.Games.Include(G => G.User).Include(G => G.States).First(F => F.GameId == GameId);
+                Game game = db.Games
+                    .Include(G => G.User)
+                    //.Include(G => G.States)
+                    .First(F => F.GameId == GameId);
 
                 return Json.package(game);
             }
@@ -45,7 +48,7 @@ namespace Escalation.Client
                 int GameId = int.Parse(this.Context.QueryString["GameId"]);
 
                 var states = db.States
-                    .Include(F => F.Game)
+                    //.Include(F => F.Game)
                     .Where(F => F.CurrentState && F.Game.GameId == GameId);
 
                 Debug.Assert(states.Count() == 1);
@@ -73,6 +76,8 @@ namespace Escalation.Client
                 new_state.StateId = 0;
 
                 old_state.CurrentState = false;
+                old_state.EdgeName = EdgeName;
+
                 new_state.CurrentState = true;
 
                 old_state.Game.States.Add(new_state);

@@ -65,7 +65,7 @@ namespace Escalation.Graph
                         if (attribs != null && attribs.Length > 0)
                         {
                             var va = attribs.OfType<VertexAttribute>().First();
-                            string key = va.Name;
+                            string key = type.Name + "_" + va.Name;
                             if (Vertexes.ContainsKey(key))
                                 throw new VertexException($"Vertex key collision {key}");
                             Vertexes[key] = (F) => (Vertex)method.Invoke(null, new object[] { F });

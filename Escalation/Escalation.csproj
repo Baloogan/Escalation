@@ -219,6 +219,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BalooganTransmit.cs" />
     <Compile Include="Client\GameHub.cs" />
+    <Compile Include="Content\FlashpointBerlin\FlashpointBerlin.cs" />
     <Compile Include="Context\GameContext.cs" />
     <Compile Include="Context\GameContextException.cs" />
     <Compile Include="Context\GameContextMigration.cs" />
@@ -235,7 +236,7 @@
     </Compile>
     <Compile Include="Graph\GraphHelper.cs" />
     <Compile Include="Graph\GraphManager.cs" />
-    <Compile Include="Graph\Basic\WhiteHouse.cs" />
+    <Compile Include="Content\Start\Start.cs" />
     <Compile Include="Graph\VertexException.cs" />
     <Compile Include="Graph\VertexAttribute.cs" />
     <Compile Include="Identity\AccountViewModels.cs" />
@@ -251,15 +252,16 @@
   <ItemGroup>
     <Content Include="Client\App.js" />
     <Content Include="Client\GameController.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Step1.html" />
-    <Content Include="Content\Step2.html" />
-    <Content Include="Content\WelcomeMrPresident.html" />
+    <Content Include="Content\Start\Scenarios.html" />
+    <Content Include="Content\FlashpointBerlin\Intro.html" />
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\bootstrap.min.css" />
+    <Content Include="Content\Start\Step1.html" />
+    <Content Include="Content\Start\Step2.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="CSS\Site.css" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -321,6 +323,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Graph\Basic\" />
+    <Folder Include="Story\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

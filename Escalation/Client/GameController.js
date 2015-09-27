@@ -5,8 +5,13 @@ app.controller('GameController', ['$scope', '$rootScope', function ($scope, $roo
     $.connection.hub.logging = true;
     $.connection.hub.qs = { GameId: GameId };
     $scope.game = null;
+    
     $scope.state = null;
     $scope.vertex = null;
+
+    $scope.game_str = null; 
+    $scope.state_str = null;
+    $scope.vertex_str = null;
 
     $scope.GameHub = $.connection.GameHub;
     $scope.GameHub.client.returnTest = function (s) { console.log(s); };
@@ -21,6 +26,12 @@ app.controller('GameController', ['$scope', '$rootScope', function ($scope, $roo
                 $scope.display_state();
             });
     }
+    $scope.debug_state=function(){
+        $scope.game_str = JSON.stringify(JSON.decycle($scope.game), null, 4);
+        $scope.state_str = JSON.stringify(JSON.decycle($scope.state), null, 4);
+        $scope.vertex_str = JSON.stringify(JSON.decycle($scope.vertex), null, 4);
+    }
+
 
     $scope.display_state = function () {
 
@@ -43,6 +54,7 @@ app.controller('GameController', ['$scope', '$rootScope', function ($scope, $roo
                         retrocycle(v);
                         $scope.vertex = v;
                         $scope.$apply();
+                        $scope.debug_state();
                         $rootScope.client_report("Vertex: " + v.Name);
                     });
             });

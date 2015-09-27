@@ -18,30 +18,28 @@ namespace AutoBaloogan
         {
             return new baloogan_chatDB(new MySqlDataProvider(), System.IO.File.ReadAllText(@"C:\AutoBalooganConfig\autobaloogan_connectionstring.txt"));
         }
-        
+
         public static void transmit(string channel, string message)
         {
+            return;
 
-            if (Environment.MachineName.ToUpper() != "STONEBURNER")
+            /// if (Environment.MachineName.ToUpper() != "STONEBURNER")
+            // {
+            //try
             {
-                    try
+                using (var autobaloogan_db = AutoBaloogan.baloogan_chatDB.connect())
+                {
+                    var t = new AutoBaloogan.Transmit()
                     {
-                        using (var autobaloogan_db = AutoBaloogan.baloogan_chatDB.connect())
-                        {
-                            var t = new AutoBaloogan.Transmit()
-                            {
-                                Channel = channel,
-                                Message = message
-                            };
-                            autobaloogan_db.Insert(t);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-
-                    }
-                
+                        Channel = channel,
+                        Message = message
+                    };
+                    autobaloogan_db.Insert(t);
+                }
             }
+            //catch (Exception e){}
+
+            // }
         }
         public static void transmit_thread(string channel, string message)
         {
