@@ -22,6 +22,7 @@ namespace Escalation
             hubConfiguration.EnableDetailedErrors = true;
             ConfigureAuth(app);
             app.MapSignalR(hubConfiguration);
+            Graph.GraphManager.init();
         }
     }
 }

@@ -19,11 +19,7 @@ namespace Escalation.Model
 
         public double LeaderSleepNeed { get; set; }
 
-
-        public State Clone()
-        {
-            return (State)this.MemberwiseClone();
-        }
+        
 
     }
 }

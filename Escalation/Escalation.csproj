@@ -233,14 +233,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Graph\Edge.cs" />
-    <Compile Include="Graph\GraphData.cs" />
+    <Compile Include="Graph\GraphHelper.cs" />
     <Compile Include="Graph\GraphManager.cs" />
-    <Compile Include="Graph\Vertex.cs" />
-    <Compile Include="Graph\WhiteHouse.cs" />
+    <Compile Include="Graph\Basic\WhiteHouse.cs" />
+    <Compile Include="Graph\VertexException.cs" />
+    <Compile Include="Graph\VertexAttribute.cs" />
     <Compile Include="Identity\AccountViewModels.cs" />
     <Compile Include="Identity\IdentityModels.cs" />
     <Compile Include="Identity\ManageViewModels.cs" />
+    <Compile Include="Json.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Game.cs" />
     <Compile Include="Model\User.cs" />
@@ -249,9 +250,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\App.js" />
-    <Content Include="Client\Game.js" />
+    <Content Include="Client\GameController.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Step1.html" />
+    <Content Include="Content\Step2.html" />
+    <Content Include="Content\WelcomeMrPresident.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -262,6 +266,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Client\Game.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -272,9 +277,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\keyboard.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\retrocycle.js" />
+    <Content Include="Scripts\underscore-min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

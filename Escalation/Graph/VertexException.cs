@@ -5,9 +5,10 @@ using System.Web;
 
 namespace Escalation.Graph
 {
-    public class Vertex
+    public class VertexException : Exception
     {
-        public string HTML;
-        public List<Edge> Edges = new List<Edge>();
+        public VertexException(string Message) : base(Message)
+        {
+        }
     }
 }

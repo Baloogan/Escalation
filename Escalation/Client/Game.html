@@ -1,0 +1,16 @@
+﻿
+<div>
+    game.Name: {{game.Name}}<br />
+    game.LeaderName: {{game.LeaderName}}<br />
+    game.User.Name: {{game.User.Name}}<br />
+    state.VertexName: {{state.VertexName}}<br/>
+    vertex.Include: {{vertex.Include}}<br />
+    <div ng-include="vertex.Include">
+
+    </div>
+    <ul>
+        <li ng-repeat="edge in vertex.Edges">
+            <a ng-click="edge_click(edge.Name)">{{edge.State.VertexName}} ({{edge.Name}})</a>
+        </li>
+    </ul>
+</div>
