@@ -56,6 +56,7 @@ namespace Escalation.Model
         public Rank Rank2_poli { get; set; } = new Rank() { Name = "Political Gestures" };
         public Rank Rank2_econ { get; set; } = new Rank() { Name = "Economic Gestures" };
         public Rank Rank2_dipl { get; set; } = new Rank() { Name = "Diplomatic Gestures" };
+        public Rank Rank3 { get; set; } = new Rank() { Name = "Solemn And Formal Declarations" };
 
 
 

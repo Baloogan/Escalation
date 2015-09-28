@@ -19,8 +19,58 @@ namespace Escalation.Content.Start
             v.Include = Root + "SubcrisisManeuvering.html";
             Edge e;
 
-            
+            e = new Edge(d);
+            e.Invisible = d.Start.Rank1.InHand <= 0;
+            e.State.VertexName = "SubcrisisManeuvering_Rung1";
+            e.State.Rank1.Played++;
+            e.State.Rank1.InHand--;
+            e.HTML = "Acknowledge Crisis";
+            v.Edges.Add(e);
 
+
+
+
+            e = new Edge(d);
+            e.Invisible = d.Start.Rank2_poli.InHand <= 0;
+            e.State.VertexName = "SubcrisisManeuvering_Rung2_poli";
+            e.State.Rank2_poli.Played++;
+            e.State.Rank2_poli.InHand--;
+            e.HTML = "Make a Political Gesture";
+            v.Edges.Add(e);
+
+
+
+
+            e = new Edge(d);
+            e.Invisible = d.Start.Rank2_econ.InHand <= 0;
+            e.State.VertexName = "SubcrisisManeuvering_Rung2_econ";
+            e.State.Rank2_econ.Played++;
+            e.State.Rank2_econ.InHand--;
+            e.HTML = "Make a Economic Gesture";
+            v.Edges.Add(e);
+
+
+
+
+
+            e = new Edge(d);
+            e.Invisible = d.Start.Rank2_dipl.InHand <= 0;
+            e.State.VertexName = "SubcrisisManeuvering_Rung2_dipl";
+            e.State.Rank2_dipl.Played++;
+            e.State.Rank2_dipl.InHand--;
+            e.HTML = "Make a Diplomatic Gesture";
+            v.Edges.Add(e);
+
+
+
+
+            e = new Edge(d);
+            e.Invisible = d.Start.Rank3.InHand <= 0;
+            e.State.VertexName = "SubcrisisManeuvering_Rung3";
+            e.State.Rank3.Played++;
+            e.State.Rank3.InHand--;
+            e.HTML = "Conclude subcrisis and address nation and world.";
+            v.Edges.Add(e);
 
             return v;
         }
@@ -34,7 +84,7 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung1.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Rung2";
+            string NextVertexName = "SubcrisisManeuvering_Index";
 
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
@@ -57,14 +107,76 @@ namespace Escalation.Content.Start
         }
 
 
-        [Vertex("Rung2")]
-        public static Vertex Rung2(GraphData d)
+        [Vertex("Rung2_poli")]
+        public static Vertex Rung2_poli(GraphData d)
         {
             Vertex v = new Vertex();
-            v.Include = Root + "Rung2.html";
+            v.Include = Root + "Rung2_poli.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Rung3";
+            string NextVertexName = "SubcrisisManeuvering_Index";
+
+
+
+
+            e = new Edge(d);
+            //e.Disabled = e.State.PoliticalCapital > 0;
+            e.State.VertexName = NextVertexName;
+            //e.State.Pressure += 5;
+            //e.State.PoliticalCapital--;
+            e.HTML = "Replace an official in a key spot by one who is known to be 'hard' or 'tough'";
+            v.Edges.Add(e);
+
+
+
+            e = new Edge(d);
+            e.State.VertexName = NextVertexName;
+            e.HTML = "Start a violent publicity campaign, encourage mass meetings, 'spontaneous' public demonstrations";
+            v.Edges.Add(e);
+
+
+
+
+
+            return v;
+        }
+
+        [Vertex("Rung2_econ")]
+        public static Vertex Rung2_econ(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "Rung2_econ.html";
+            Edge e;
+
+            string NextVertexName = "SubcrisisManeuvering_Index";
+
+
+
+
+            e = new Edge(d);
+            //e.Disabled = e.State.Pressure > 15 && e.State.PoliticalCapital > 0;
+            e.State.VertexName = NextVertexName;
+            // e.State.Pressure += 5;
+            //e.State.PoliticalCapital--;
+            e.HTML = "Make a moderate but unmistakable legal or economic reprisal";
+            v.Edges.Add(e);
+
+
+
+
+
+
+            return v;
+        }
+
+        [Vertex("Rung2_dipl")]
+        public static Vertex Rung2_dipl(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "Rung2_dipl.html";
+            Edge e;
+
+            string NextVertexName = "SubcrisisManeuvering_Index";
 
 
             e = new Edge(d);
@@ -116,35 +228,6 @@ namespace Escalation.Content.Start
 
 
 
-
-            e = new Edge(d);
-            //e.Disabled = e.State.Pressure > 15 && e.State.PoliticalCapital > 0;
-            e.State.VertexName = NextVertexName;
-            // e.State.Pressure += 5;
-            //e.State.PoliticalCapital--;
-            e.HTML = "Make a moderate but unmistakable legal or economic reprisal";
-            v.Edges.Add(e);
-
-
-
-
-            e = new Edge(d);
-            //e.Disabled = e.State.PoliticalCapital > 0;
-            e.State.VertexName = NextVertexName;
-            //e.State.Pressure += 5;
-            //e.State.PoliticalCapital--;
-            e.HTML = "Replace an official in a key spot by one who is known to be 'hard' or 'tough'";
-            v.Edges.Add(e);
-
-
-
-            e = new Edge(d);
-            e.State.VertexName = NextVertexName;
-            e.HTML = "Start a violent publicity campaign, encourage mass meetings, 'spontaneous' public demonstrations";
-            v.Edges.Add(e);
-
-
-
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
             //e.State.Pressure += 5;
@@ -154,15 +237,9 @@ namespace Escalation.Content.Start
 
 
 
-            e = new Edge(d);
-            e.State.VertexName = NextVertexName;
-            //e.State.Pressure += 5;
-            //e.State.PerceivedInflexibility += 5;
-            e.HTML = "Make a solemn and formal declaration";
-            v.Edges.Add(e);
-
             return v;
         }
+
 
         [Vertex("Rung3")]
         public static Vertex Rung3(GraphData d)
@@ -171,7 +248,7 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung3.html";
             Edge e;
 
-            string NextVertexName = "TraditionalCrises_Rung4";
+            string NextVertexName = "TraditionalCrises_Index";
 
 
 

@@ -10,8 +10,19 @@ namespace Escalation.Content.Start
     public static class TraditionalCrises
     {
         private const string Root = "/Content/TraditionalCrises/";
-        
+
         [Vertex("Index")]
+        public static Vertex Index(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "Index.html";
+            Edge e;
+            
+
+
+            return v;
+        }
+        [Vertex("Rung4")]
         public static Vertex Rung4(GraphData d)
         {
             Vertex v = new Vertex();
