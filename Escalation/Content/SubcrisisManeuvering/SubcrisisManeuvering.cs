@@ -76,6 +76,34 @@ namespace Escalation.Content.Start
         }
 
 
+        [Vertex("Result")]
+        public static Vertex Result(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "Rung1.html";
+            Edge e;
+
+            string NextVertexName = "SubcrisisManeuvering_Index";
+
+            e = new Edge(d);
+            e.State.VertexName = NextVertexName;
+            //e.State.PerceivedCommitment += 5;
+            //e.State.PublicAwareness += 5;
+            e.HTML = "Assert openly and explicitly that unless the dispute is resolved in the immediate future further escalation will occur.";
+            v.Edges.Add(e);
+
+
+            e = new Edge(d);
+            e.State.VertexName = NextVertexName;
+            //e.State.PublicAwareness += 20;
+            e.HTML = "Officially inspire newspaper stories to the effect that the chief of state takes a serious view of the matter.";
+            v.Edges.Add(e);
+
+
+
+
+            return v;
+        }
 
         [Vertex("Rung1")]
         public static Vertex Rung1(GraphData d)
@@ -84,7 +112,7 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung1.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Index";
+            string NextVertexName = "SubcrisisManeuvering_Result";
 
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
@@ -114,7 +142,7 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung2_poli.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Index";
+            string NextVertexName = "SubcrisisManeuvering_Result";
 
 
 
@@ -148,7 +176,7 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung2_econ.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Index";
+            string NextVertexName = "SubcrisisManeuvering_Result";
 
 
 
@@ -176,7 +204,7 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung2_dipl.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Index";
+            string NextVertexName = "SubcrisisManeuvering_Result";
 
 
             e = new Edge(d);
