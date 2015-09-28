@@ -80,24 +80,15 @@ namespace Escalation.Content.Start
         public static Vertex Result(GraphData d)
         {
             Vertex v = new Vertex();
-            v.Include = Root + "Rung1.html";
+            v.Include = Root + "Result.html";
             Edge e;
 
             string NextVertexName = "SubcrisisManeuvering_Index";
+            
 
-            e = new Edge(d);
-            e.State.VertexName = NextVertexName;
-            //e.State.PerceivedCommitment += 5;
-            //e.State.PublicAwareness += 5;
-            e.HTML = "Assert openly and explicitly that unless the dispute is resolved in the immediate future further escalation will occur.";
-            v.Edges.Add(e);
+            //soviets get to respond here. All possibilities will be listed, 
+            //What the soviets do is based on variables. They don't know whats in your hand but they do know what you have played.
 
-
-            e = new Edge(d);
-            e.State.VertexName = NextVertexName;
-            //e.State.PublicAwareness += 20;
-            e.HTML = "Officially inspire newspaper stories to the effect that the chief of state takes a serious view of the matter.";
-            v.Edges.Add(e);
 
 
 
