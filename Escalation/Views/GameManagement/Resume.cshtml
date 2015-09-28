@@ -1,0 +1,24 @@
+﻿@model List<Escalation.Controllers.GameManagementController.GameListing>
+@{
+    ViewBag.Title = "Start New Game";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <br />
+        <br />
+        <br />
+        <div id="Tags">
+            @foreach (var item in Model)
+            {
+                using (Html.BeginForm("ResumeSubmit", "GameManagement", new { GameId = item.Game.GameId }, FormMethod.Post))
+                {
+                    <div>@item.Game.Name - @item.State.Title - @item.State.VertexName (@item.StateCount turns)<br /></div>
+                    <input type="submit" value="Load"><br />
+                    <br />
+                    <br />
+                }
+            }
+        </div>
+    </div>
+</div>

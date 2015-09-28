@@ -6,6 +6,10 @@
     <h1>Escalation</h1>
     <p class="lead">Escalation is a simple web game about what actions lead to increasing or decreasing the intensity of global conflicts. </p>
     @Html.ActionLink("Start Playing", "StartNew", "GameManagement", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("Resume", "Resume", "GameManagement", routeValues: null, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
+    }
 </div>
 
 <div class="row" style="font-style:italic">

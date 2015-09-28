@@ -12,22 +12,24 @@
 </div>
 <div class="row">
     <div ng-repeat="edge in vertex.Edges" class="col-md-4">
-        <a ng-click="edge_click(edge.Name)" ng-hide="edge.Disabled" style="font-weight:bolder;">
-            {{edge.HTML}}
-        </a>
-        <a ng-show="edge.Disabled" style="color:red; cursor:not-allowed">
-            {{edge.HTML}}
-            <span ng-show="edge.DisabledReason">
-                ({{edge.DisabledReason}})
-            </span>
-        </a>
-        <br />
-        <span style="font-size:11px" ng-repeat="(key, value) in edge.diff" ng-show="state.ShowDelta">
-            {{key}} changes from '{{value[0]}}' to '{{value[1]}}'.
+        <div ng-hide="edge.Invisible">
+            <a ng-click="edge_click(edge.Name)" ng-hide="edge.Disabled" style="font-weight:bolder;">
+                {{edge.HTML}}
+            </a>
+            <a ng-show="edge.Disabled" style="color:red; cursor:not-allowed">
+                {{edge.HTML}}
+                <span ng-show="edge.DisabledReason">
+                    ({{edge.DisabledReason}})
+                </span>
+            </a>
             <br />
-        </span>
-        <br />
-        <br />
+            <span style="font-size:11px" ng-repeat="(key, value) in edge.diff" ng-show="state.ShowDelta">
+                {{key}} changes from '{{value[0]}}' to '{{value[1]}}'.
+                <br />
+            </span>
+            <br />
+            <br />
+        </div>
     </div>
 </div>
 <div ng-show="state.ShowDebug">
