@@ -81,14 +81,20 @@ namespace Escalation.Content.Start
         {
             Vertex v = new Vertex();
             v.Include = Root + "Result.html";
-            Edge e;
 
             string NextVertexName = "SubcrisisManeuvering_Index";
-            
+
 
             //soviets get to respond here. All possibilities will be listed, 
             //What the soviets do is based on variables. They don't know whats in your hand but they do know what you have played.
 
+
+
+
+            Edge e = new Edge(d);
+            e.State.VertexName = NextVertexName;
+            e.HTML = "Soviet Action!";
+            v.Edges.Add(e);
 
 
 
@@ -107,15 +113,13 @@ namespace Escalation.Content.Start
 
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
-            //e.State.PerceivedCommitment += 5;
-            //e.State.PublicAwareness += 5;
+            e.State.PerceivedResolve += 5;
             e.HTML = "Assert openly and explicitly that unless the dispute is resolved in the immediate future further escalation will occur.";
             v.Edges.Add(e);
 
 
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
-            //e.State.PublicAwareness += 20;
             e.HTML = "Officially inspire newspaper stories to the effect that the chief of state takes a serious view of the matter.";
             v.Edges.Add(e);
 
@@ -139,10 +143,8 @@ namespace Escalation.Content.Start
 
 
             e = new Edge(d);
-            //e.Disabled = e.State.PoliticalCapital > 0;
             e.State.VertexName = NextVertexName;
-            //e.State.Pressure += 5;
-            //e.State.PoliticalCapital--;
+            e.State.PerceivedInflexibility += 5;
             e.HTML = "Replace an official in a key spot by one who is known to be 'hard' or 'tough'";
             v.Edges.Add(e);
 
@@ -150,6 +152,7 @@ namespace Escalation.Content.Start
 
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
+            e.State.PerceivedResolve += 5;
             e.HTML = "Start a violent publicity campaign, encourage mass meetings, 'spontaneous' public demonstrations";
             v.Edges.Add(e);
 
@@ -173,10 +176,9 @@ namespace Escalation.Content.Start
 
 
             e = new Edge(d);
-            //e.Disabled = e.State.Pressure > 15 && e.State.PoliticalCapital > 0;
             e.State.VertexName = NextVertexName;
-            // e.State.Pressure += 5;
-            //e.State.PoliticalCapital--;
+            e.State.PerceivedResolve += 5;
+            e.State.PerceivedInflexibility += 5;
             e.HTML = "Make a moderate but unmistakable legal or economic reprisal";
             v.Edges.Add(e);
 
@@ -205,6 +207,7 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 10;
             e.HTML = "Recall an ambassador for lengthy consultation.";
             v.Edges.Add(e);
+            //soviets recall their ambassador too "for lengthy consultations"
 
 
 

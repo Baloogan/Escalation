@@ -31,17 +31,26 @@ namespace Escalation.Model
 
 
         public string Nation { get; set; }
+
         public string EnemyNation { get; set; }
         public string EnemyLeader { get; set; }
+
+        public double EnemyResolve { get; set; }
+        public double EnemyInflexibility { get; set; }
+
+        public double PerceivedResolve { get; set; }
+        public double PerceivedInflexibility { get; set; }
+
+
+
+
 
         /*
         public double Leadership { get; set; }
         public double Prestige { get; set; }
 
         public double Stakes { get; set; }
-        public double PerceivedCommitment { get; set; }
-        public double PerceivedInflexibility { get; set; }
-
+        
         public double Pressure { get; set; }
 
         public double PublicAwareness { get; set; }
