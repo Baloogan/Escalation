@@ -220,7 +220,7 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 10;
             e.HTML = "Refuse to facilitate negotiations on other issues.";
             v.Edges.Add(e);
-
+           //Soviets reciprocate and halt negiotiations on arms control. 
 
 
 
