@@ -116,13 +116,13 @@ namespace Escalation.Content.Start
             e.State.PerceivedResolve += 5;
             e.HTML = "Assert openly and explicitly that unless the dispute is resolved in the immediate future further escalation will occur.";
             v.Edges.Add(e);
-
+	    //Soviets claim you're fanning the fire. 
 
             e = new Edge(d);
             e.State.VertexName = NextVertexName;
             e.HTML = "Officially inspire newspaper stories to the effect that the chief of state takes a serious view of the matter.";
             v.Edges.Add(e);
-
+	    //Little effective change on Soviets.
 
 
 
@@ -147,7 +147,7 @@ namespace Escalation.Content.Start
             e.State.PerceivedInflexibility += 5;
             e.HTML = "Replace an official in a key spot by one who is known to be 'hard' or 'tough'";
             v.Edges.Add(e);
-
+	    //Soviets do likewise.
 
 
             e = new Edge(d);
@@ -155,7 +155,8 @@ namespace Escalation.Content.Start
             e.State.PerceivedResolve += 5;
             e.HTML = "Start a violent publicity campaign, encourage mass meetings, 'spontaneous' public demonstrations";
             v.Edges.Add(e);
-
+            //With gusto, the Soviet propagandists eagerly match the demonstrations 
+	    //with even more spectactular ones. 
 
 
 
@@ -181,7 +182,7 @@ namespace Escalation.Content.Start
             e.State.PerceivedInflexibility += 5;
             e.HTML = "Make a moderate but unmistakable legal or economic reprisal";
             v.Edges.Add(e);
-
+	    //Soviets respond by scuttling several in-progress trade deals. 
 
 
 
@@ -232,7 +233,8 @@ namespace Escalation.Content.Start
             //e.State.Prestige -= 5;
             e.HTML = "Make overtures to the other side's enemies";
             v.Edges.Add(e);
-
+	    //Soviets respond with aircraft flights towards said enemies as a show of force.
+	    //(enemies are China and Yugoslavia-easy pressure targets) 
 
 
 
@@ -245,7 +247,7 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 5;
             e.HTML = "Denounce a treaty";
             v.Edges.Add(e);
-
+	    //Soviets denounce a treaty as well.
 
 
 
@@ -256,7 +258,8 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 5;
             e.HTML = "Make a private threat through diplomatic channels";
             v.Edges.Add(e);
-
+	    //If state.pressure is low, Soviets make a private threat back.
+	    //If state.pressure is higher, Soviets make the private threat public and denounce it. 
 
 
             return v;
