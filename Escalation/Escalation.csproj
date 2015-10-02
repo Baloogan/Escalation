@@ -259,6 +259,11 @@
     <Content Include="Client\AdminController.js" />
     <Content Include="Client\GameController.js" />
     <Content Include="Client\Ladder.html" />
+    <Content Include="Content\SubcrisisManeuvering\ScuttlingTradeDeals.html" />
+    <Content Include="Content\SubcrisisManeuvering\SovietPropagandistsMatch.html" />
+    <Content Include="Content\SubcrisisManeuvering\OfficialReplacement.html" />
+    <Content Include="Content\SubcrisisManeuvering\DontCare.html" />
+    <Content Include="Content\SubcrisisManeuvering\FanningFire.html" />
     <Content Include="Content\SubcrisisManeuvering\Rung2_poli.html" />
     <Content Include="Content\SubcrisisManeuvering\Rung2_dipl.html" />
     <Content Include="Content\SubcrisisManeuvering\SubcrisisManeuvering.html" />

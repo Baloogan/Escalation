@@ -11,6 +11,10 @@ namespace Escalation.Controllers
     {
         public ActionResult Index()
         {
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+            // Stop Caching in Firefox
+            Response.Cache.SetNoStore();
             ViewBag.GameId = (Session["Game"] as Game).GameId;
             return View();
         }

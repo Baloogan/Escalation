@@ -82,22 +82,13 @@ namespace Escalation.Content.Start
             Vertex v = new Vertex();
             v.Include = Root + "Result.html";
 
-            string NextVertexName = "SubcrisisManeuvering_Index";
-
-
             //soviets get to respond here. All possibilities will be listed, 
             //What the soviets do is based on variables. They don't know whats in your hand but they do know what you have played.
 
-
-
-
             Edge e = new Edge(d);
-            e.State.VertexName = NextVertexName;
+            e.State.VertexName = "SubcrisisManeuvering_Index";
             e.HTML = "Soviet Action!";
             v.Edges.Add(e);
-
-
-
 
             return v;
         }
@@ -109,26 +100,55 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung1.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Result";
-
             e = new Edge(d);
-            e.State.VertexName = NextVertexName;
+            e.State.VertexName = "SubcrisisManeuvering_FanningFire";
             e.State.PerceivedResolve += 5;
             e.HTML = "Assert openly and explicitly that unless the dispute is resolved in the immediate future further escalation will occur.";
             v.Edges.Add(e);
-	    //Soviets claim you're fanning the fire. 
+            //Soviets claim you're fanning the fire. 
 
             e = new Edge(d);
-            e.State.VertexName = NextVertexName;
+            e.State.VertexName = "SubcrisisManeuvering_DontCare";
             e.HTML = "Officially inspire newspaper stories to the effect that the chief of state takes a serious view of the matter.";
             v.Edges.Add(e);
-	    //Little effective change on Soviets.
+            //Little effective change on Soviets.
 
 
 
             return v;
         }
 
+
+        [Vertex("FanningFire")]
+        public static Vertex FanningFire(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "FanningFire.html";
+            Edge e;
+
+            e = new Edge(d);
+            e.State.VertexName = "SubcrisisManeuvering_Index";
+            e.HTML = "Okay...";
+            v.Edges.Add(e);
+
+
+            return v;
+        }
+        [Vertex("DontCare")]
+        public static Vertex DontCare(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "DontCare.html";
+            Edge e;
+
+            e = new Edge(d);
+            e.State.VertexName = "SubcrisisManeuvering_Index";
+            e.HTML = "Okay...";
+            v.Edges.Add(e);
+
+
+            return v;
+        }
 
         [Vertex("Rung2_poli")]
         public static Vertex Rung2_poli(GraphData d)
@@ -137,33 +157,55 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung2_poli.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Result";
-
-
-
-
             e = new Edge(d);
-            e.State.VertexName = NextVertexName;
+            e.State.VertexName = "SubcrisisManeuvering_OfficialReplacement";
             e.State.PerceivedInflexibility += 5;
             e.HTML = "Replace an official in a key spot by one who is known to be 'hard' or 'tough'";
             v.Edges.Add(e);
-	    //Soviets do likewise.
+            //Soviets do likewise.
 
 
             e = new Edge(d);
-            e.State.VertexName = NextVertexName;
+            e.State.VertexName = "SubcrisisManeuvering_SovietPropagandistsMatch";
             e.State.PerceivedResolve += 5;
             e.HTML = "Start a violent publicity campaign, encourage mass meetings, 'spontaneous' public demonstrations";
             v.Edges.Add(e);
             //With gusto, the Soviet propagandists eagerly match the demonstrations 
-	    //with even more spectactular ones. 
+            //with even more spectactular ones. 
 
+            return v;
+        }
+        [Vertex("OfficialReplacement")]
+        public static Vertex OfficialReplacement(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "OfficialReplacement.html";
+            Edge e;
 
+            e = new Edge(d);
+            e.State.VertexName = "SubcrisisManeuvering_Index";
+            e.HTML = "Okay...";
+            v.Edges.Add(e);
 
 
             return v;
         }
 
+        [Vertex("SovietPropagandistsMatch")]
+        public static Vertex SovietPropagandistsMatch(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "SovietPropagandistsMatch.html";
+            Edge e;
+
+            e = new Edge(d);
+            e.State.VertexName = "SubcrisisManeuvering_Index";
+            e.HTML = "Okay...";
+            v.Edges.Add(e);
+
+
+            return v;
+        }
         [Vertex("Rung2_econ")]
         public static Vertex Rung2_econ(GraphData d)
         {
@@ -171,18 +213,13 @@ namespace Escalation.Content.Start
             v.Include = Root + "Rung2_econ.html";
             Edge e;
 
-            string NextVertexName = "SubcrisisManeuvering_Result";
-
-
-
-
             e = new Edge(d);
-            e.State.VertexName = NextVertexName;
+            e.State.VertexName = "SubcrisisManeuvering_ScuttlingTradeDeals";
             e.State.PerceivedResolve += 5;
             e.State.PerceivedInflexibility += 5;
             e.HTML = "Make a moderate but unmistakable legal or economic reprisal";
             v.Edges.Add(e);
-	    //Soviets respond by scuttling several in-progress trade deals. 
+            //Soviets respond by scuttling several in-progress trade deals. 
 
 
 
@@ -191,6 +228,21 @@ namespace Escalation.Content.Start
             return v;
         }
 
+        [Vertex("ScuttlingTradeDeals")]
+        public static Vertex ScuttlingTradeDeals(GraphData d)
+        {
+            Vertex v = new Vertex();
+            v.Include = Root + "ScuttlingTradeDeals.html";
+            Edge e;
+
+            e = new Edge(d);
+            e.State.VertexName = "SubcrisisManeuvering_Index";
+            e.HTML = "Okay...";
+            v.Edges.Add(e);
+
+
+            return v;
+        }
         [Vertex("Rung2_dipl")]
         public static Vertex Rung2_dipl(GraphData d)
         {
@@ -221,7 +273,7 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 10;
             e.HTML = "Refuse to facilitate negotiations on other issues.";
             v.Edges.Add(e);
-           //Soviets reciprocate and halt negiotiations on arms control. 
+            //Soviets reciprocate and halt negiotiations on arms control. 
 
 
 
@@ -233,8 +285,8 @@ namespace Escalation.Content.Start
             //e.State.Prestige -= 5;
             e.HTML = "Make overtures to the other side's enemies";
             v.Edges.Add(e);
-	    //Soviets respond with aircraft flights towards said enemies as a show of force.
-	    //(enemies are China and Yugoslavia-easy pressure targets) 
+            //Soviets respond with aircraft flights towards said enemies as a show of force.
+            //(enemies are China and Yugoslavia-easy pressure targets) 
 
 
 
@@ -247,7 +299,7 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 5;
             e.HTML = "Denounce a treaty";
             v.Edges.Add(e);
-	    //Soviets denounce a treaty as well.
+            //Soviets denounce a treaty as well.
 
 
 
@@ -258,8 +310,8 @@ namespace Escalation.Content.Start
             //e.State.PerceivedInflexibility += 5;
             e.HTML = "Make a private threat through diplomatic channels";
             v.Edges.Add(e);
-	    //If state.pressure is low, Soviets make a private threat back.
-	    //If state.pressure is higher, Soviets make the private threat public and denounce it. 
+            //If state.pressure is low, Soviets make a private threat back.
+            //If state.pressure is higher, Soviets make the private threat public and denounce it. 
 
 
             return v;

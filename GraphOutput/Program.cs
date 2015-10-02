@@ -29,9 +29,9 @@ namespace GraphOutput
                 edges_visited.Add(e.Name);
                 //graph_links.Add(new Tuple<string, string>(v.Name, e.Name));
                 //graph_links.Add(new Tuple<string, string>(e.Name, e.HTML));
-                graph_links.Add(new Tuple<string, string>(v.Name, e.HTML));
+                graph_links.Add(new Tuple<string, string>(v.Name, e.Name + " " + e.HTML));
 
-                graph_links.Add(new Tuple<string, string>(e.HTML, e.State.VertexName));
+                graph_links.Add(new Tuple<string, string>(e.Name + " " + e.HTML, e.State.VertexName));
                 Vertex sub = GetVertex(new State() { VertexName = e.State.VertexName });
                 Recurse(sub);
             }
