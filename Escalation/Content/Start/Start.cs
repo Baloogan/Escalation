@@ -17,10 +17,16 @@ namespace Escalation.Content.Start
             Vertex v = new Vertex();
             v.Include = Root + "Initial.html";
 
-            Edge e = new Edge(d);
+            Edge e;
+            e = new Edge(d);
+            e.State.VertexName = "Start_Scenarios";
+            e.HTML = "Okay!";
+            v.Edges.Add(e);
+
+
             e = new Edge(d);
             e.State.VertexName = "Start_Settings";
-            e.HTML = "Okay!";
+            e.HTML = "Change settings...";
             v.Edges.Add(e);
 
             return v;
@@ -85,7 +91,7 @@ namespace Escalation.Content.Start
             e.State.EnemyNation = "the Soviet Union";
             e.State.DateTime = new DateTime(1965, 5, 1);
             e.State.EnemyLeader = "Leonid Brezhnev";
-            
+
             e.HTML = "Flashpoint Berlin, 1965";
 
             v.Edges.Add(e);
